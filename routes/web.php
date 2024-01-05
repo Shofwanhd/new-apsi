@@ -29,6 +29,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// ->middleware(['checkRole:admin']);
+// ->middleware(['checkRole:owner,admin,user,member']);
 
 require __DIR__.'/auth.php';
