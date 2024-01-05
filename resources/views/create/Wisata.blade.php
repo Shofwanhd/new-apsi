@@ -50,10 +50,10 @@
                                 Gambar
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Category
+                                Judul
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Price
+                                Desc
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only">Edit</span>

@@ -30,12 +30,12 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $input['image'] = time() . '.' . $image->getClientOriginalExtension();
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $input['gambar'] = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/images');
-            $image->move($destinationPath, $input['image']);
-            $image_path = '/images/' . $input['image'];
+            $image->move($destinationPath, $input['gambar']);
+            $image_path = '/images/' . $input['gambar'];
         } else {
             $image_path = '/images/default.jpg';
         }
@@ -46,6 +46,8 @@ class BeritaController extends Controller
         $wisata->desc = $request->desc;
         $wisata->category = $request->category;
         $wisata->save();
+
+        return redirect()->route('berita.index');
     }
 
     /**

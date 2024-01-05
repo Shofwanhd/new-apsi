@@ -34,13 +34,13 @@ class AuthenticatedSessionController extends Controller
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
             if (auth()->user()->role == 'owner') {
-                return redirect()->route('owner.home');
+                return redirect()->route('dashboard');
             } else if (auth()->user()->role == 'admin') {
-                return redirect()->route('admin.home');
+                return redirect()->route('dashboard');
             } else if (auth()->user()->role == 'user') {
-                return redirect()->route('user.home');
+                return redirect()->route('dashboard');
             } else {
-                return redirect()->route('member.home');
+                return redirect()->route('dashboard');
             }
         } else {
             return redirect()->route('login')

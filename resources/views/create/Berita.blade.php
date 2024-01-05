@@ -22,6 +22,19 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Doe" required>
                     </div>
+                    <div>
+                        <label for="countries"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Categori</label>
+                        <select id="countries" name="category"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Choose a country</option>
+                            <option value="wahana">Wahana</option>
+                            <option value="satwa">Satwa</option>
+                            <option value="kegiatan">Kegiatan</option>
+                            <option value="pertunjukan">Pertunjukan</option>
+                            <option value="mitra ancol">Mitra Ancol</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-6">
                     <label for="message"
@@ -50,10 +63,13 @@
                                 Gambar
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Category
+                                Judul
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Price
+                                Desc
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Category
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only">Edit</span>
@@ -76,6 +92,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $item->desc }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->category }}
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                     <button type="button"
