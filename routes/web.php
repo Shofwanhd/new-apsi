@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboarduserController;
+use App\Http\Controllers\landingpage;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('LandingPage');
 });
+
+Route::get('/', [landingpage::class, 'index'])->name('index');
+Route::get('/wisata', [landingpage::class, 'wisata'])->name('wisata');
+Route::get('/membership', [landingpage::class, 'membership'])->name('membership');
+Route::get('/berita', [landingpage::class, 'berita'])->name('berita');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
