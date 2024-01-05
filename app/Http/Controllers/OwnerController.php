@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class OwnerController extends Controller
 {
@@ -11,7 +16,8 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        //
+        $owner = DB::table('users')->where('role', 'owner')->get();
+        return view('create.Owner', compact('owner'));
     }
 
     /**
@@ -27,7 +33,20 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'owner',
+        ]);
+
+        return redirect()->route('owner.index');
     }
 
     /**

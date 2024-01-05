@@ -22,7 +22,7 @@
         <div>
             <x-input-label for="nik" :value="__('Nik')" />
             <x-text-input id="nik" class="block mt-1 w-full" type="number" name="nik" :value="old('nik')"
-                required autofocus autocomplete="nik" />
+                 autofocus autocomplete="nik" />
             <x-input-error :messages="$errors->get('nik')" class="mt-2" />
         </div>
 
@@ -30,7 +30,7 @@
         <div>
             <x-input-label for="umur" :value="__('Umur')" />
             <x-text-input id="umur" class="block mt-1 mb-1 w-full" type="number" name="umur" :value="old('umur')"
-                required autofocus autocomplete="umur" />
+                 autofocus autocomplete="umur" />
             <x-input-error :messages="$errors->get('umur')" class="mt-2" />
         </div>
 

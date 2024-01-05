@@ -293,33 +293,16 @@
 
                     <div
                         class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Jumlah
-                            User :
-                        </h5>
-                        <h5 class="mb-2 mt-10 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">xxx
-                            Transaksi
-                        </h5>
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                    <div
+                        class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <canvas id="myChart2"></canvas>
                     </div>
                     <div
                         class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Jumlah
-                            Member :
-                        </h5>
-                        <h5 class="mb-2 mt-10 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">xxx
-                            Transaksi
-                        </h5>
-                    </div>
-                    <div
-                        class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Jumlah
-                            Admin :
-                        </h5>
-                        <h5 class="mb-2 mt-10 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">xxx
-                            Transaksi
-                        </h5>
+                        <canvas id="myChart3"></canvas>
                     </div>
 
 
@@ -561,5 +544,30 @@
             </div>
         </div>
     @endif
+
+    <script>
+        const ctx = document.getElementById('myChart1');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+      
+    </script>
 
 </x-app-layout>

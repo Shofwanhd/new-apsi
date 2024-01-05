@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboarduserController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WisataController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ Route::middleware('checkRole:member')->group(function () {
 
 Route::resource('wisata', WisataController::class);
 Route::resource('berita', BeritaController::class);
+Route::resource('owner', OwnerController::class);
 
 // ->middleware(['checkRole:owner,admin,user,member']);
 
