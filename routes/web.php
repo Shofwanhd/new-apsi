@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboarduserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware('checkRole:user')->group(function () {
+    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+});
+
 
 // ->middleware(['checkRole:owner,admin,user,member']);
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
