@@ -34,6 +34,15 @@ Route::middleware('auth')->group(function () {
 Route::middleware('checkRole:user')->group(function () {
     // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
 });
+Route::middleware('checkRole:admin')->group(function () {
+    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+});
+Route::middleware('checkRole:owner')->group(function () {
+    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+});
+Route::middleware('checkRole:member')->group(function () {
+    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+});
 
 Route::resource('wisata', WisataController::class);
 Route::resource('berita', BeritaController::class);
