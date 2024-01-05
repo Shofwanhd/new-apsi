@@ -12,7 +12,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        //
+        $berita = Berita::all();
+        
+        return view('create.berita', compact('berita'));
     }
 
     /**

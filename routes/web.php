@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboarduserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WisataController;
@@ -35,6 +36,7 @@ Route::middleware('checkRole:user')->group(function () {
 });
 
 Route::resource('wisata', WisataController::class);
+Route::resource('berita', BeritaController::class);
 
 // ->middleware(['checkRole:owner,admin,user,member']);
 
