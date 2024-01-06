@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
-class TiketController extends Controller
+class BmemberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +27,7 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**

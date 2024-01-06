@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\DashboarduserController;
-use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\landingpage;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WisataController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\BtiketController;
+use App\Http\Controllers\WisataController;
+use App\Http\Controllers\BmemberController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboarduserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,24 +40,36 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 Route::middleware('checkRole:user')->group(function () {
-    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+    Route::resource('btiket', BtiketController::class);
+    Route::resource('bmember', BmemberController::class);
 });
 Route::middleware('checkRole:admin')->group(function () {
-    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+    Route::resource('wisata', WisataController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('owner', OwnerController::class);
 });
 Route::middleware('checkRole:owner')->group(function () {
-    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+    Route::resource('wisata', WisataController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('owner', OwnerController::class);
 });
 Route::middleware('checkRole:member')->group(function () {
-    // Route::get('/dashboard', [DashboarduserController::class, 'index'])->name('index');
+    Route::resource('wisata', WisataController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('owner', OwnerController::class);
 });
 
-Route::resource('wisata', WisataController::class);
-Route::resource('berita', BeritaController::class);
-Route::resource('owner', OwnerController::class);
+
+
 
 // ->middleware(['checkRole:owner,admin,user,member']);
+
+
+
+
+
 
 
 require __DIR__ . '/auth.php';
