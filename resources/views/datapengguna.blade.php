@@ -11,6 +11,9 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3 ">
+                                No
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
                                 Nama
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -29,24 +32,28 @@
                     </thead>
                     <tbody class="list">
                         @foreach ($user as $item)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white name">
-                                {{$item->name}}
-                            </th>
-                            <td class="px-6 py-4 email">
-                                {{$item->email}}
-                            </td>
-                            <td class="px-6 py-4 umur">
-                                {{$item->umur}}
-                            </td>
-                            <td class="px-6 py-4 domisili">
-                                {{$item->domisili}}
-                            </td>
-                            <td class="px-6 py-4 role">
-                                {{$item->role}}
-                            </td>
-                        </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white name">
+                                    {{ $loop->iteration }}
+                                </th>
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white name">
+                                    {{ $item->name }}
+                                </th>
+                                <td class="px-6 py-4 email">
+                                    {{ $item->email }}
+                                </td>
+                                <td class="px-6 py-4 umur">
+                                    {{ $item->umur }}
+                                </td>
+                                <td class="px-6 py-4 domisili">
+                                    {{ $item->domisili }}
+                                </td>
+                                <td class="px-6 py-4 role">
+                                    {{ $item->role }}
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

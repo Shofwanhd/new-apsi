@@ -31,6 +31,7 @@ Route::get('/', [landingpage::class, 'index'])->name('index');
 Route::get('/wisata', [landingpage::class, 'wisata'])->name('wisata');
 Route::get('/membership', [landingpage::class, 'membership'])->name('membership');
 Route::get('/berita', [landingpage::class, 'berita'])->name('berita');
+Route::get('/data-transaksi', [OtransaksiController::class, 'index'])->name('index')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -54,7 +55,6 @@ Route::middleware('checkRole:admin')->group(function () {
 });
 Route::middleware('checkRole:owner')->group(function () {
     Route::get('/data-pengguna', [OpenggunaController::class, 'index'])->name('index');
-    Route::get('/data-transaksi', [OtransaksiController::class, 'index'])->name('index');
 });
 Route::middleware('checkRole:member')->group(function () {
     Route::resource('wisata', WisataController::class);
