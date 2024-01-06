@@ -8,6 +8,8 @@ use App\Http\Controllers\BtiketController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\BmemberController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OpenggunaController;
+use App\Http\Controllers\OtransaksiController;
 use App\Http\Controllers\DashboarduserController;
 
 /*
@@ -51,9 +53,8 @@ Route::middleware('checkRole:admin')->group(function () {
     Route::resource('owner', OwnerController::class);
 });
 Route::middleware('checkRole:owner')->group(function () {
-    Route::resource('wisata', WisataController::class);
-    Route::resource('berita', BeritaController::class);
-    Route::resource('owner', OwnerController::class);
+    Route::get('/data-pengguna', [OpenggunaController::class, 'index'])->name('index');
+    Route::get('/data-transaksi', [OtransaksiController::class, 'index'])->name('index');
 });
 Route::middleware('checkRole:member')->group(function () {
     Route::resource('wisata', WisataController::class);
